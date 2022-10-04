@@ -63,7 +63,7 @@ namespace PRESENCA_FACIL.Repository
             }
         }
 
-       
+
 
         public IEnumerable<PresencaAluno> ListByData(int idProfessor, string data)
         {
@@ -107,6 +107,38 @@ namespace PRESENCA_FACIL.Repository
                 {
                     return cnx.QueryFirstOrDefault<PresencaAluno>("usp_chamada_aluno_select_data_materia",
                         new { idMateria = idMateria, numeroMatricula = numeroMatricula, data = now }, commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public PresencaAluno GetRespostaChamadaDiaIP(int idMateria, string ipAluno, DateTime now)
+        {
+            try
+            {
+                using (var cnx = new SqlConnection(Connection))
+                {
+                    return cnx.QueryFirstOrDefault<PresencaAluno>("usp_chamada_aluno_select_ip_JaRespondeu",
+                        new { idMateria = idMateria, ipAluno = ipAluno, data = now }, commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        
+        public PresencaAluno GetRespostaChamadaDiaMAC(int idMateria, string EnderecoMAC, DateTime now)
+        {
+            try
+            {
+                using (var cnx = new SqlConnection(Connection))
+                {
+                    return cnx.QueryFirstOrDefault<PresencaAluno>("usp_chamada_aluno_select_MAC_JaRespondeu",
+                        new { idMateria = idMateria, EnderecoMACAluno = EnderecoMAC, data = now }, commandType: CommandType.StoredProcedure);
                 }
             }
             catch (Exception ex)

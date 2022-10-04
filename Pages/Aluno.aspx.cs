@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -38,12 +39,19 @@ namespace PRESENCA_FACIL.Pages
             }
         }
 
-      
+
 
         protected void btn_responderChamada_Click(object sender, EventArgs e)
         {
             try
             {
+
+                string firstMacAddress = NetworkInterface
+                    .GetAllNetworkInterfaces()
+                    .Where(nic => nic.OperationalStatus == OperationalStatus.Up && nic.NetworkInterfaceType != NetworkInterfaceType.Loopback)
+                    .Select(nic => nic.GetPhysicalAddress().ToString())
+                    .FirstOrDefault();
+
                 var chamada = new PresencaAluno
                 {
                     DataChamada = DateTime.Now,
@@ -52,6 +60,7 @@ namespace PRESENCA_FACIL.Pages
                     NumeroMatricula = txt_matricula.Text,
                     IpAluno = Request.UserHostAddress,
                     IdMateria = Convert.ToInt32(hf_idMateria.Value),
+                    EnderecoMACAluno = firstMacAddress,
                     IsProcessado = false
                 };
 
@@ -61,7 +70,7 @@ namespace PRESENCA_FACIL.Pages
                 {
                     if (new PresencaRepository().Salvar(chamada))
                     {
-                        ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('Chamada respondida.')", true);
+                        ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('Chamada respondida com sucesso.')", true);
                     }
                 }
                 else
@@ -97,15 +106,35 @@ namespace PRESENCA_FACIL.Pages
 
             if (chamadaAluno.NumeroMatricula == "")
             {
-
                 retorno = "Matrícula é obrigatório";
             }
+
 
             var chamada = Repo.GetRespostaChamada(chamadaAluno.IdMateria, chamadaAluno.NumeroMatricula, DateTime.Now);
             if (chamada != null)
             {
-                retorno = "Chamada já respondida.";
+                retorno = "Chamada já respondida para este número de matrícula.";
             }
+            else
+            {
+                chamada = Repo.GetRespostaChamadaDiaIP(chamadaAluno.IdMateria, chamadaAluno.IpAluno, DateTime.Now);
+                if (chamada != null)
+                {
+                    retorno = "Este Computador já foi usado para responder a chamada hoje !";
+                }
+                else
+                {
+
+                    chamada = Repo.GetRespostaChamadaDiaMAC(chamadaAluno.IdMateria, chamadaAluno.EnderecoMACAluno, DateTime.Now);
+
+                    if (chamada != null)
+                        retorno = "Este Computador já foi usado para responder a chamada hoje !";
+                }
+
+            }
+
+
+
 
             return retorno;
         }
