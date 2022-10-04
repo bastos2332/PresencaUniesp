@@ -81,8 +81,24 @@ namespace PRESENCA_FACIL.Repository
 
         }
 
+        public IEnumerable<PresencaAluno> ListByMateriaData(int idMateria, string data)
+        {
+            try
+            {
+                using (var cnx = new SqlConnection(Connection))
+                {
+                    return cnx.Query<PresencaAluno>("usp_presenca_materia_list_data", new { idMateria = idMateria, data = data }, commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
-        
+        }
+
+
+
         public PresencaAluno GetRespostaChamada(int idMateria, string numeroMatricula, DateTime now)
         {
             try

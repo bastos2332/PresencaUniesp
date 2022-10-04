@@ -12,7 +12,7 @@
 
     <link href="/css/adminlte.min.css" rel="stylesheet" />
     <link href="/css/all.min.css" rel="stylesheet" />
-
+    <link href="/css/Main.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

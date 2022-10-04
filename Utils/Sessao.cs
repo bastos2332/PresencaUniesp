@@ -45,6 +45,12 @@ namespace PRESENCA_FACIL.Utils
             HttpContext.Current.Session["NomeProfessor"] = prof.NomeProfessor;
         }
 
+        public static void KillSessao()
+        {
+            HttpContext.Current.Session.Clear();
+          
+        }
+
 
     }
 }

@@ -1,25 +1,25 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PagesProfessor/Default.Master" AutoEventWireup="true" CodeBehind="Turmas.aspx.cs" Inherits="PRESENCA_FACIL.PagesProfessor.Turmas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     <div class="card">
         <div class="card-header">
-             <asp:Literal runat="server" ID="txt_dataAtual"></asp:Literal>
+            <asp:Literal runat="server" ID="txt_dataAtual"></asp:Literal>
         </div>
         <div class="card-body mt-3">
 
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
                     <div class="row mt-3 justify-content-center">
-                        <div class="col-8">
+                        <div class="col-6">
 
                             <div class="input-group ">
+                                <label>Data Chamada:</label>
                                 <div class="input-group mb-3">
-                                    <asp:TextBox runat="server" ID="txt_dataFiltro" CssClass="form-control" TextMode="Date" placeholder="Data" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                                    <asp:TextBox runat="server" ToolTip="Preencha com a data que deseja realizar a Chamada Fácil" ID="txt_dataFiltro" CssClass="form-control" TextMode="Date" placeholder="Data" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                                     <div class="input-group-append">
-                                        <asp:Button Text="Filtrar" CssClass="btn btn-lg btn-outline-secondary" ID="btn_realizarFiltro" OnClick="btn_realizarFiltro_Click" runat="server" />
+                                        <asp:Button Text="Filtrar" CssClass="btn btn-outline-secondary" ID="btn_realizarFiltro" OnClick="btn_realizarFiltro_Click" runat="server" />
                                     </div>
                                 </div>
                             </div>
@@ -46,16 +46,19 @@
                             </ul>
                             <div class="tab-content" id="myTabContent">
 
-                                <asp:Repeater runat="server" ID="rpt_materias">
+                                <asp:Repeater runat="server" ID="rpt_materias" OnItemDataBound="rpt_materias_ItemDataBound">
 
                                     <ItemTemplate>
 
                                         <div class="tab-pane fade" id='<%# Eval("idConteudo") %>' role="tabpanel" aria-labelledby="home-tab">
                                             <div class="container">
 
+                                                <asp:CheckBox runat="server" ID="cb_presenhaAberta" Text="Aberta" CssClass="cb_isChamadaAberto" />
                                                 <div class="row">
                                                     <div class="col">
-                                                        <table class="table table-hover">
+
+
+                                                        <table class="table table-hover mt-3">
                                                             <thead>
                                                                 <tr>
                                                                     <th scope="col">Matricula</th>
@@ -65,11 +68,14 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <asp:Repeater runat="server" ID="rpt_chamadasMaterias">
+                                                                <asp:Repeater runat="server" ID="rpt_PresencasMateria" OnItemDataBound="rpt_PresencasMateria_ItemDataBound">
                                                                     <ItemTemplate>
                                                                         <tr>
                                                                             <th scope="row">
                                                                                 <asp:Literal runat="server" ID="lit_numeroMatricula"></asp:Literal></th>
+                                                                            <td>teste</td>
+                                                                            <td>teste</td>
+                                                                            <td>teste</td>
                                                                         </tr>
                                                                     </ItemTemplate>
                                                                 </asp:Repeater>
@@ -79,7 +85,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row justify-content-center">
-                                                    <div class="col-6">
+                                                    <div class="col-4">
                                                         <asp:LinkButton runat="server" ID="linkBtn_processar" Text="Processar Dia" CssClass="btn btn-success d-block"></asp:LinkButton>
                                                     </div>
                                                 </div>
@@ -102,7 +108,6 @@
 
         </div>
         <div class="card-footer">
-           
         </div>
     </div>
 

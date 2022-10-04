@@ -76,12 +76,14 @@
   <ItemGroup>
     <Content Include="css\adminlte.min.css" />
     <Content Include="css\all.min.css" />
+    <Content Include="css\Main.css" />
     <Content Include="favicon.ico" />
     <Content Include="favicon.png" />
     <Content Include="img\iesp-logo.png" />
     <Content Include="img\mini-logo-iesp.png" />
     <Content Include="img\user-logo.png" />
     <Content Include="PagesProfessor\Turmas.aspx" />
+    <Content Include="Pages\Error.aspx" />
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
@@ -118,6 +120,13 @@
     </Compile>
     <Compile Include="Pages\Aluno.aspx.designer.cs">
       <DependentUpon>Aluno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

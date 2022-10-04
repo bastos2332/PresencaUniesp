@@ -29,8 +29,7 @@ namespace PRESENCA_FACIL.PagesProfessor
                 if (Sessao.IsAtiva)
                 {
                     txt_dataAtual.Text = DateTime.Now.ToLongDateString();
-                    txt_dataFiltro.Text = DateTime.Now.ToShortDateString();
-                    CarregarRespostasTurma();
+             
                 }
                 else
                     Response.Redirect("~/Pages/Login.aspx?SemAcesso");
@@ -62,9 +61,40 @@ namespace PRESENCA_FACIL.PagesProfessor
             {
                 Literal lit_menu = (Literal)e.Item.FindControl("lit_menu");
                 lit_menu.Text = $" <li class='nav-item'><a class='nav-link' id='menu_materia_{DataBinder.Eval(e.Item.DataItem, "idMateria")}' data-toggle='tab' href='#materia_{DataBinder.Eval(e.Item.DataItem, "idMateria")}' role='tab' aria-controls='materia_{DataBinder.Eval(e.Item.DataItem, "idMateria")}' aria-selected='true'>{DataBinder.Eval(e.Item.DataItem, "NomeMateria")}</a></li>";
+            }
+        }
+
+        protected void rpt_materias_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                CheckBox cb_presenhaAberta = (CheckBox)e.Item.FindControl("cb_presenhaAberta");
+                cb_presenhaAberta.Checked = (bool)DataBinder.Eval(e.Item.DataItem, "isChamadaAberta");
+
+                LinkButton linkBtn_processar = (LinkButton)e.Item.FindControl("linkBtn_processar");
+                linkBtn_processar.CommandArgument = DataBinder.Eval(e.Item.DataItem, "idMateria").ToString();
+
+
+                Repeater rpt_PresencasMateria = (Repeater)e.Item.FindControl("rpt_PresencasMateria");
+                rpt_PresencasMateria.DataSource = presencaRepo.ListByMateriaData((int)DataBinder.Eval(e.Item.DataItem, "idMateria"), DateTime.Now.ToShortDateString());
+                rpt_PresencasMateria.DataBind();
 
             }
         }
+
+        protected void rpt_PresencasMateria_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+
+                Literal lit_numeroMatricula = (Literal)e.Item.FindControl("lit_numeroMatricula");
+                lit_numeroMatricula.Text = DataBinder.Eval(e.Item.DataItem, "numeroMatricula").ToString(); ;
+
+            }
+        }
+
+
+
 
         #endregion
 
@@ -89,7 +119,9 @@ namespace PRESENCA_FACIL.PagesProfessor
 
             return str.ToString();
         }
+
         #endregion
 
+      
     }
 }
