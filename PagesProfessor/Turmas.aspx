@@ -12,7 +12,7 @@
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
                     <div class="row mt-3 justify-content-center">
-                        <div class="col-6">
+                        <div class="col-4">
 
                             <div class="input-group ">
                                 <label>Data Chamada:</label>
@@ -52,8 +52,24 @@
 
                                         <div class="tab-pane fade" id='<%# Eval("idConteudo") %>' role="tabpanel" aria-labelledby="home-tab">
                                             <div class="container">
+                                                <div class="row mb-3">
+                                                    <div class="col">
 
-                                                <asp:CheckBox runat="server" ID="cb_presenhaAberta" Text="Aberta" CssClass="cb_isChamadaAberto" />
+
+                                                        <asp:CheckBox runat="server" ID="cb_presenhaAberta" Text="Aberta" CssClass="cb_isChamadaAberto" />
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="copia-cola-btn mt-2 float-right">
+                                                            <span class="btn btn-outline-success btn-copia" onclick="CopiarLinkTurma(this);"><i class="fa fa-copy"></i>&nbsp;Copiar Link da Chamada</span>
+                                                        </div>
+                                                        <div class="copia-texto float-right" style="opacity: 0;">
+                                                            <textarea class="textArea-link-turma">
+                                                                <asp:Literal runat="server" ID="lit_linkTurma"></asp:Literal>
+                                                            </textarea>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
                                                 <div class="row">
                                                     <div class="col">
 

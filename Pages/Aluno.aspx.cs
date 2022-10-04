@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using PRESENCA_FACIL.Repository;
-
+using PRESENCA_FACIL.Utils;
 namespace PRESENCA_FACIL.Pages
 {
     public partial class Aluno : System.Web.UI.Page
@@ -19,7 +19,9 @@ namespace PRESENCA_FACIL.Pages
         {
             if (!Page.IsPostBack)
             {
-                var idMateria = Convert.ToInt32(Request.QueryString.Get("idm"));
+                var idMateriaBase64 = Request.QueryString.Get("idm").ToString();
+
+                int idMateria = Convert.ToInt32(Utilitario.Base64Decode(idMateriaBase64));
 
                 if (idMateria != 0)
                 {

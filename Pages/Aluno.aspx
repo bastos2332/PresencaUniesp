@@ -19,7 +19,7 @@
 
             <div class="card ">
                 <div class="card-header">
-                    Chamada do dia
+                    Chamada de
                     <asp:Literal ID="txt_dataAtual" runat="server" />
                 </div>
                 <div class="card-body">

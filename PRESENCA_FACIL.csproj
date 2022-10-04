@@ -82,6 +82,7 @@
     <Content Include="img\iesp-logo.png" />
     <Content Include="img\mini-logo-iesp.png" />
     <Content Include="img\user-logo.png" />
+    <Content Include="js\Main.js" />
     <Content Include="PagesProfessor\Turmas.aspx" />
     <Content Include="Pages\Error.aspx" />
     <Content Include="webfonts\fa-brands-400.svg" />
@@ -140,6 +141,7 @@
     <Compile Include="Repository\PresencaRepository.cs" />
     <Compile Include="Repository\ProfessorRepository.cs" />
     <Compile Include="Utils\Sessao.cs" />
+    <Compile Include="Utils\Utilitario.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="webfonts\fa-brands-400.eot" />

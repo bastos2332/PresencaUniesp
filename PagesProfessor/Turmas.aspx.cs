@@ -29,7 +29,7 @@ namespace PRESENCA_FACIL.PagesProfessor
                 if (Sessao.IsAtiva)
                 {
                     txt_dataAtual.Text = DateTime.Now.ToLongDateString();
-             
+
                 }
                 else
                     Response.Redirect("~/Pages/Login.aspx?SemAcesso");
@@ -70,6 +70,11 @@ namespace PRESENCA_FACIL.PagesProfessor
             {
                 CheckBox cb_presenhaAberta = (CheckBox)e.Item.FindControl("cb_presenhaAberta");
                 cb_presenhaAberta.Checked = (bool)DataBinder.Eval(e.Item.DataItem, "isChamadaAberta");
+
+                string idMateriaTurma = DataBinder.Eval(e.Item.DataItem, "idMateria").ToString();
+
+                Literal lit_linkTurma = (Literal)e.Item.FindControl("lit_linkTurma");
+                lit_linkTurma.Text = HttpContext.Current.Request.Url.Host + $":{Request.Url.Port}" + $"/Pages/Aluno.aspx?idm={Utilitario.Base64Encode(idMateriaTurma)}";
 
                 LinkButton linkBtn_processar = (LinkButton)e.Item.FindControl("linkBtn_processar");
                 linkBtn_processar.CommandArgument = DataBinder.Eval(e.Item.DataItem, "idMateria").ToString();
@@ -122,6 +127,6 @@ namespace PRESENCA_FACIL.PagesProfessor
 
         #endregion
 
-      
+
     }
 }

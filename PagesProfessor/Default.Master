@@ -121,6 +121,7 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/adminlte.min.js"></script>
+<script src="/js/Main.js"></script>
 
 <asp:ContentPlaceHolder ID="scripts" runat="server">
 </asp:ContentPlaceHolder>
