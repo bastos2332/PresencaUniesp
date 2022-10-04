@@ -6,6 +6,7 @@ using System.Web;
 
 public class Professor
 {
+
     [Key]
     public int IdProfessor { get; set; }
     public string NomeProfessor { get; set; }

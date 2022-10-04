@@ -5,12 +5,13 @@ using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using PRESENCA_FACIL.Repository;
 
-namespace CHAMADA.Pages
+namespace PRESENCA_FACIL.Pages
 {
     public partial class Aluno : System.Web.UI.Page
     {
-        public ChamadaRepository Repo { get; set; } = new ChamadaRepository();
+        public PresencaRepository Repo { get; set; } = new PresencaRepository();
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -43,7 +44,7 @@ namespace CHAMADA.Pages
         {
             try
             {
-                var chamada = new ChamadaAluno
+                var chamada = new PresencaAluno
                 {
                     DataChamada = DateTime.Now,
                     IsMatriculaEncontrada = false,
@@ -58,7 +59,7 @@ namespace CHAMADA.Pages
 
                 if (validacao == "")
                 {
-                    if (new ChamadaRepository().Salvar(chamada))
+                    if (new PresencaRepository().Salvar(chamada))
                     {
                         ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('Chamada respondida.')", true);
                     }
@@ -84,7 +85,7 @@ namespace CHAMADA.Pages
             txt_nome.Enabled = false;
         }
 
-        private string ValidarResposta(ChamadaAluno chamadaAluno)
+        private string ValidarResposta(PresencaAluno chamadaAluno)
         {
             var retorno = "";
 
