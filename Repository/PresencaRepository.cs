@@ -33,6 +33,23 @@ namespace PRESENCA_FACIL.Repository
 
         }
 
+        public bool Atualizar(PresencaAluno presenca)
+        {
+            try
+            {
+                using (var cnx = new SqlConnection(Connection))
+                {
+                    return cnx.Update(presenca);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+
         public bool AtualizarMateria(MateriaTurma turma)
         {
             try

@@ -32,27 +32,30 @@ namespace PRESENCA_FACIL.Pages
                     else
                     {
 
-                        if (!materia.IsChamadaAberta)
+                        if (MacJaRespondeu(materia.IdMateria))
                         {
                             LimparCampos();
-                            ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('Chamada ainda não foi aberta!')", true);
+                            SetarStatusPrensenca(materia.IdMateria);
                         }
                         else
                         {
-                            if (MacJaRespondeu(materia.IdMateria))
+
+                            if (!materia.IsChamadaAberta)
                             {
                                 LimparCampos();
-                                SetarStatusPrensenca(materia.IdMateria);
+                                ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('Chamada ainda não foi aberta!')", true);
                             }
                             else
                             {
-
                                 hf_idMateria.Value = materia.IdMateria.ToString();
                                 txt_dataAtual.Text = DateTime.Now.ToLongDateString();
+
                             }
 
-
                         }
+
+
+
                     }
                 }
                 else

@@ -63,6 +63,22 @@ namespace PRESENCA_FACIL.Repository
             }
         }
 
+        public Professor GetDecript(int idProfessor)
+        {
+            try
+            {
+                using (var cnx = new SqlConnection(Connection))
+                {
+                    return cnx.QueryFirstOrDefault<Professor>("usp_professor_select_decript",
+                        new { idProfessor = idProfessor, frase = FraseEcpt }, commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
     }
 }

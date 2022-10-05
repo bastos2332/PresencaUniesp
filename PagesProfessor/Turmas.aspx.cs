@@ -83,7 +83,7 @@ namespace PRESENCA_FACIL.PagesProfessor
 
                 LinkButton linkBtn_processar = (LinkButton)e.Item.FindControl("linkBtn_processar");
                 linkBtn_processar.Enabled = false;
-                if (txt_dataFiltro.Text == DateTime.Now.ToShortDateString())
+                if (Convert.ToDateTime(txt_dataFiltro.Text).Date == DateTime.Now.Date)
                 {
                     linkBtn_processar.CommandArgument = DataBinder.Eval(e.Item.DataItem, "idMateria").ToString();
                     linkBtn_processar.Enabled = true;
@@ -163,17 +163,27 @@ namespace PRESENCA_FACIL.PagesProfessor
                 var turma = presencaRepo.GetMateria(idMateria);
                 if (!turma.IsChamadaAberta)
                 {
-                    var selenium = new Selenium();
 
+                    var professor = professorRepo.GetDecript(Sessao.IdProfessor);
+                    List<PresencaAluno> presencas = presencaRepo.ListByMateriaData(idMateria, DateTime.Now.ToShortDateString()).ToList();
 
+                    if (presencas.Count > 0)
+                    {
+                        var selenium = new Selenium();
+                        selenium.RealizarLogin(professor.UsuarioSistema, professor.SenhaSistema);
+                        foreach (var presenca in presencas)
+                        {
+                            presenca.StatusPresenca = nameof(EStatusPresenca.CONFIRMADO);
+                            presencaRepo.Atualizar(presenca);
+                        }
+                        ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('Chamada Finalizada com sucesso!')", true);
 
-
+                    }
+                    else
+                        ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('Nenhuma presença encontrada!')", true);
                 }
                 else
                     ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('A chamada precisa estar fechada!')", true);
-
-
-
 
 
             }

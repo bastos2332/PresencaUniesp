@@ -61,3 +61,5 @@ C:\Bastos\Github\PresencaUniesp\bin\PRESENCA_FACIL.dll
 C:\Bastos\Github\PresencaUniesp\bin\PRESENCA_FACIL.pdb
 C:\Bastos\Github\PresencaUniesp\obj\Debug\PRESENCA_FACIL.dll
 C:\Bastos\Github\PresencaUniesp\obj\Debug\PRESENCA_FACIL.pdb
+C:\Bastos\Github\PresencaUniesp\bin\WebDriver.dll
+C:\Bastos\Github\PresencaUniesp\bin\WebDriver.Support.dll

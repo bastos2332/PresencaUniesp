@@ -112,7 +112,7 @@
                                                 </div>
                                                 <div class="row justify-content-center mt-5">
                                                     <div class="col-4">
-                                                        <asp:LinkButton runat="server" ID="linkBtn_processar" CssClass="btn btn-success d-block"><i class="far fa-calendar-check"></i>&nbsp; Realizar Chamada</asp:LinkButton>
+                                                        <asp:LinkButton runat="server" ID="linkBtn_processar" OnClick="linkBtn_processar_Click" CssClass="btn btn-success d-block"><i class="far fa-calendar-check"></i>&nbsp; Realizar Chamada</asp:LinkButton>
                                                     </div>
                                                 </div>
 

@@ -67,6 +67,12 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Selenium.WebDriver.4.5.0\lib\net48\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Selenium.Support.4.5.0\lib\net48\WebDriver.Support.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -77,6 +83,7 @@
     <Content Include="css\adminlte.min.css" />
     <Content Include="css\all.min.css" />
     <Content Include="css\Main.css" />
+    <Content Include="driver\chromedriver.exe" />
     <Content Include="favicon.ico" />
     <Content Include="favicon.png" />
     <Content Include="img\iesp-logo.png" />
@@ -144,6 +151,7 @@
     <Compile Include="Repository\PresencaRepository.cs" />
     <Compile Include="Repository\ProfessorRepository.cs" />
     <Compile Include="Utils\Enums.cs" />
+    <Compile Include="Utils\Selenium.cs" />
     <Compile Include="Utils\Sessao.cs" />
     <Compile Include="Utils\Utilitario.cs" />
   </ItemGroup>
