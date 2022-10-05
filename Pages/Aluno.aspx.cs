@@ -41,6 +41,7 @@ namespace PRESENCA_FACIL.Pages
 
                         if (IPJaRespondeu(materia.IdMateria))
                         {
+                            ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", ";setInterval(function () {window.location.replace(window.location.pathname + window.location.search + window.location.hash);}, 20000);", true);
                             LimparCampos();
                             SetarStatusPrensenca(materia.IdMateria);
                         }
@@ -124,7 +125,8 @@ namespace PRESENCA_FACIL.Pages
                     {
                         if (new PresencaRepository().Salvar(chamada))
                         {
-                            ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('Chamada respondida com sucesso.')", true);
+                            SetarStatusPrensenca(chamada.IdMateria);
+                            ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('Chamada respondida com sucesso.');setInterval(function () {window.location.replace(window.location.pathname + window.location.search + window.location.hash);}, 20000);", true);
                         }
                     }
                     else
