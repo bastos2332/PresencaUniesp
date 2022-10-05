@@ -3,13 +3,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
+
+    <asp:UpdatePanel runat="server" ID="upPnl_btnRefresh">
+        <ContentTemplate>
+            <asp:Button runat="server" ID="btn_refresh" Style="opacity: 0;" CssClass="btn-refresh" OnClick="btn_refresh_Click" />
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
+
+
     <div class="card">
         <div class="card-header">
             <asp:Literal runat="server" ID="txt_dataAtual"></asp:Literal>
         </div>
         <div class="card-body mt-3">
 
-            <asp:UpdatePanel runat="server">
+            <asp:UpdatePanel runat="server" ID="UpPnl_geral" UpdateMode="Conditional">
                 <ContentTemplate>
                     <div class="row mt-3 justify-content-center">
                         <div class="col-4">
@@ -55,9 +64,13 @@
                                                 <div class="row mb-3 mt-2">
                                                     <div class="col">
 
+                                                        <asp:UpdatePanel runat="server" ID="upPnl_materias" UpdateMode="Conditional">
+                                                            <ContentTemplate>
 
-                                                        <asp:HiddenField runat="server" ID="hf_idMateriaTurma" />
-                                                        <asp:CheckBox runat="server" ID="cb_presenhaAberta" AutoPostBack="true" Text="Chamada Aberta" CssClass="cb_isChamadaAberto" OnCheckedChanged="cb_presenhaAberta_CheckedChanged" />
+                                                                <asp:HiddenField runat="server" ID="hf_idMateriaTurma" />
+                                                                <asp:CheckBox runat="server" ID="cb_presenhaAberta" AutoPostBack="true" Text="Chamada Aberta" CssClass="cb_isChamadaAberto" OnCheckedChanged="cb_presenhaAberta_CheckedChanged" />
+                                                            </ContentTemplate>
+                                                        </asp:UpdatePanel>
                                                     </div>
                                                     <div class="col">
                                                         <div class="copia-cola-btn mt-2 float-right">
@@ -73,45 +86,55 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
-
-
-                                                        <table class="table table-hover mt-3">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th scope="col">Matricula</th>
-                                                                    <th scope="col">Nome</th>
-                                                                    <th scope="col">IP</th>
-                                                                    <th scope="col">Data Hora</th>
-                                                                    <th scope="col">Status</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <asp:Repeater runat="server" ID="rpt_PresencasMateria" OnItemDataBound="rpt_PresencasMateria_ItemDataBound">
-                                                                    <ItemTemplate>
+                                                        <asp:UpdatePanel runat="server">
+                                                            <ContentTemplate>
+                                                                <table class="table table-hover mt-3">
+                                                                    <thead>
                                                                         <tr>
-                                                                            <th scope="row">
-                                                                                <asp:Literal runat="server" ID="lit_numeroMatricula"></asp:Literal></th>
-                                                                            <td>
-                                                                                <asp:Literal runat="server" ID="lit_nomeAluno"></asp:Literal></td>
-                                                                            <td>
-                                                                                <asp:Literal runat="server" ID="lit_ipAlubo"></asp:Literal></td>
-
-                                                                            <td>
-                                                                                <asp:Literal runat="server" ID="lit_dataHora"></asp:Literal></td>
-
-                                                                            <td>
-                                                                                <asp:Image runat="server" ID="img_statusPresenca" CssClass="img-fluid" Width="40px" /></td>
+                                                                            <th scope="col">Matricula</th>
+                                                                            <th scope="col">Nome</th>
+                                                                            <th scope="col">IP</th>
+                                                                            <th scope="col">Data Hora</th>
+                                                                            <th scope="col">Status</th>
                                                                         </tr>
-                                                                    </ItemTemplate>
-                                                                </asp:Repeater>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <asp:Repeater runat="server" ID="rpt_PresencasMateria" OnItemDataBound="rpt_PresencasMateria_ItemDataBound">
+                                                                            <ItemTemplate>
+                                                                                <tr>
+                                                                                    <th scope="row">
+                                                                                        <asp:Literal runat="server" ID="lit_numeroMatricula"></asp:Literal></th>
+                                                                                    <td>
+                                                                                        <asp:Literal runat="server" ID="lit_nomeAluno"></asp:Literal></td>
+                                                                                    <td>
+                                                                                        <asp:Literal runat="server" ID="lit_ipAlubo"></asp:Literal></td>
 
-                                                            </tbody>
-                                                        </table>
+                                                                                    <td>
+                                                                                        <asp:Literal runat="server" ID="lit_dataHora"></asp:Literal></td>
+
+                                                                                    <td>
+                                                                                        <asp:Image runat="server" ID="img_statusPresenca" CssClass="img-fluid" Width="40px" /></td>
+                                                                                </tr>
+                                                                            </ItemTemplate>
+                                                                        </asp:Repeater>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </ContentTemplate>
+                                                            <Triggers>
+                                                                <asp:AsyncPostBackTrigger ControlID="linkBtn_processar" />
+                                                                <asp:AsyncPostBackTrigger ControlID="btn_refresh" />
+                                                            </Triggers>
+                                                        </asp:UpdatePanel>
                                                     </div>
                                                 </div>
                                                 <div class="row justify-content-center mt-5">
                                                     <div class="col-4">
-                                                        <asp:LinkButton runat="server" ID="linkBtn_processar" OnClick="linkBtn_processar_Click" CssClass="btn btn-success d-block"><i class="far fa-calendar-check"></i>&nbsp; Realizar Chamada</asp:LinkButton>
+                                                        <asp:UpdatePanel runat="server" ID="upPnl_btnProcessar" UpdateMode="Conditional">
+                                                            <ContentTemplate>
+                                                                <asp:LinkButton runat="server" ID="linkBtn_processar" OnClick="linkBtn_processar_Click" CssClass="btn btn-success d-block"><i class="far fa-calendar-check"></i>&nbsp; Realizar Chamada</asp:LinkButton>
+                                                            </ContentTemplate>
+                                                        </asp:UpdatePanel>
                                                     </div>
                                                 </div>
 
@@ -120,6 +143,7 @@
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
+
 
 
                             </div>
@@ -140,6 +164,14 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scripts" runat="server">
+
+    <script>
+        setInterval(function () {
+            $(".btn-refresh").click();
+            console.log("chamou");
+        }, 15000);
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

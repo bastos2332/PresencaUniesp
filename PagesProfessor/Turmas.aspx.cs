@@ -173,6 +173,9 @@ namespace PRESENCA_FACIL.PagesProfessor
                             presenca.StatusPresenca = nameof(EStatusPresenca.CONFIRMADO);
                             presencaRepo.Atualizar(presenca);
                         }
+
+                        CarregarRespostasTurma();
+
                         ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('Chamada Finalizada com sucesso!')", true);
 
                     }
@@ -187,6 +190,21 @@ namespace PRESENCA_FACIL.PagesProfessor
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+        }
+
+        protected void btn_refresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txt_dataFiltro.Text != "")
+                {
+                    CarregarRespostasTurma();
+                }
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }
@@ -225,6 +243,7 @@ namespace PRESENCA_FACIL.PagesProfessor
             rpt_materias.DataSource = materias;
             rpt_materias.DataBind();
         }
+
 
 
 

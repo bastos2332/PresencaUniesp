@@ -15,6 +15,24 @@ namespace PRESENCA_FACIL.PagesProfessor
     {
 
         /// <summary>
+        /// Controle upPnl_btnRefresh.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upPnl_btnRefresh;
+
+        /// <summary>
+        /// Controle btn_refresh.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_refresh;
+
+        /// <summary>
         /// Controle txt_dataAtual.
         /// </summary>
         /// <remarks>
@@ -22,6 +40,15 @@ namespace PRESENCA_FACIL.PagesProfessor
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal txt_dataAtual;
+
+        /// <summary>
+        /// Controle UpPnl_geral.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpPnl_geral;
 
         /// <summary>
         /// Controle txt_dataFiltro.
