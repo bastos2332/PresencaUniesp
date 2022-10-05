@@ -42,6 +42,24 @@ namespace PRESENCA_FACIL.Pages
         protected global::System.Web.UI.WebControls.Literal txt_dataAtual;
 
         /// <summary>
+        /// Controle pnl_statusPresenca.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnl_statusPresenca;
+
+        /// <summary>
+        /// Controle img_statusPresenca.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image img_statusPresenca;
+
+        /// <summary>
         /// Controle txt_nome.
         /// </summary>
         /// <remarks>

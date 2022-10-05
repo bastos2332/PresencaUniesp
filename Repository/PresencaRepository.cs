@@ -33,6 +33,22 @@ namespace PRESENCA_FACIL.Repository
 
         }
 
+        public bool AtualizarMateria(MateriaTurma turma)
+        {
+            try
+            {
+                using (var cnx = new SqlConnection(Connection))
+                {
+                    return cnx.Update(turma);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public MateriaTurma GetMateria(int idMateria)
         {
             try
@@ -87,7 +103,9 @@ namespace PRESENCA_FACIL.Repository
             {
                 using (var cnx = new SqlConnection(Connection))
                 {
-                    return cnx.Query<PresencaAluno>("usp_presenca_materia_list_data", new { idMateria = idMateria, data = data }, commandType: CommandType.StoredProcedure);
+                    var result = cnx.Query<PresencaAluno>("usp_presenca_materia_list_data", new { idMateria = idMateria, data = data }, commandType: CommandType.StoredProcedure);
+
+                    return result;
                 }
             }
             catch (Exception ex)

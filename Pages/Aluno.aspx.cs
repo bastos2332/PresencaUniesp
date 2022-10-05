@@ -27,12 +27,32 @@ namespace PRESENCA_FACIL.Pages
                 {
                     var materia = Repo.GetMateria(idMateria);
 
-                    if (materia == null || !materia.IsChamadaAberta)
+                    if (materia == null)
                         throw new Exception("Parametros incorretos.");
                     else
                     {
-                        hf_idMateria.Value = materia.IdMateria.ToString();
-                        txt_dataAtual.Text = DateTime.Now.ToLongDateString();
+
+                        if (!materia.IsChamadaAberta)
+                        {
+                            LimparCampos();
+                            ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('Chamada ainda não foi aberta!')", true);
+                        }
+                        else
+                        {
+                            if (MacJaRespondeu(materia.IdMateria))
+                            {
+                                LimparCampos();
+                                SetarStatusPrensenca(materia.IdMateria);
+                            }
+                            else
+                            {
+
+                                hf_idMateria.Value = materia.IdMateria.ToString();
+                                txt_dataAtual.Text = DateTime.Now.ToLongDateString();
+                            }
+
+
+                        }
                     }
                 }
                 else
@@ -41,51 +61,82 @@ namespace PRESENCA_FACIL.Pages
             }
         }
 
+        private void SetarStatusPrensenca(int idMateria)
+        {
+            pnl_statusPresenca.Visible = true;
+            var chamada = Repo.GetRespostaChamadaDiaMAC(idMateria, Utilitario.ObterEnderecoMAC(), DateTime.Now);
 
+            switch (chamada.StatusPresenca)
+            {
+                case nameof(EStatusPresenca.AGUARDANDO):
+                    img_statusPresenca.ImageUrl = "~/img/status-waiting.gif";
+                    img_statusPresenca.ToolTip = "Aguardando finalização do professor!";
+                    break;
+                case nameof(EStatusPresenca.CONFIRMADO):
+                    img_statusPresenca.ImageUrl = "~/img/status-confirm.png";
+                    img_statusPresenca.ToolTip = "Presença confirmada!";
+                    break;
+                case nameof(EStatusPresenca.NAO_ENCONTRADO):
+                    img_statusPresenca.ImageUrl = "~/img/status-not-found.png";
+                    img_statusPresenca.ToolTip = "Matrícula digitada não encontrada, fale com o professor!";
+                    break;
+            }
+        }
+
+        private bool MacJaRespondeu(int idMateria)
+        {
+            var chamada = Repo.GetRespostaChamadaDiaMAC(idMateria, Utilitario.ObterEnderecoMAC(), DateTime.Now);
+
+
+            return chamada != null;
+
+        }
 
         protected void btn_responderChamada_Click(object sender, EventArgs e)
         {
             try
             {
 
-                string firstMacAddress = NetworkInterface
-                    .GetAllNetworkInterfaces()
-                    .Where(nic => nic.OperationalStatus == OperationalStatus.Up && nic.NetworkInterfaceType != NetworkInterfaceType.Loopback)
-                    .Select(nic => nic.GetPhysicalAddress().ToString())
-                    .FirstOrDefault();
-
-                var chamada = new PresencaAluno
+                if (hf_idMateria.Value != "")
                 {
-                    DataChamada = DateTime.Now,
-                    IsMatriculaEncontrada = false,
-                    NomeAluno = txt_nome.Text,
-                    NumeroMatricula = txt_matricula.Text,
-                    IpAluno = Request.UserHostAddress,
-                    IdMateria = Convert.ToInt32(hf_idMateria.Value),
-                    EnderecoMACAluno = firstMacAddress,
-                    IsProcessado = false
-                };
+                    string firstMacAddress = Utilitario.ObterEnderecoMAC();
 
-                var validacao = ValidarResposta(chamada);
-
-                if (validacao == "")
-                {
-                    if (new PresencaRepository().Salvar(chamada))
+                    var chamada = new PresencaAluno
                     {
-                        ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('Chamada respondida com sucesso.')", true);
+                        DataChamada = DateTime.Now,
+                        StatusPresenca = nameof(EStatusPresenca.AGUARDANDO),
+                        NomeAluno = txt_nome.Text,
+                        NumeroMatricula = txt_matricula.Text,
+                        IpAluno = Request.UserHostAddress,
+                        IdMateria = Convert.ToInt32(hf_idMateria.Value),
+                        EnderecoMACAluno = firstMacAddress
+                    };
+
+                    var validacao = ValidarResposta(chamada);
+
+                    if (validacao == "")
+                    {
+                        if (new PresencaRepository().Salvar(chamada))
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", "alert('Chamada respondida com sucesso.')", true);
+                        }
                     }
+                    else
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", $"alert('{validacao}')", true);
+                    }
+                    LimparCampos();
+
                 }
-                else
-                {
-                    ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "script", $"alert('{validacao}')", true);
-                }
-                LimparCampos();
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
+
 
         private void LimparCampos()
         {
@@ -94,6 +145,8 @@ namespace PRESENCA_FACIL.Pages
 
             txt_matricula.Enabled = false;
             txt_nome.Enabled = false;
+
+            btn_responderChamada.Enabled = false;
         }
 
         private string ValidarResposta(PresencaAluno chamadaAluno)

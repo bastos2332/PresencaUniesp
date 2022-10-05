@@ -46,17 +46,18 @@
                             </ul>
                             <div class="tab-content" id="myTabContent">
 
+
                                 <asp:Repeater runat="server" ID="rpt_materias" OnItemDataBound="rpt_materias_ItemDataBound">
 
                                     <ItemTemplate>
-
                                         <div class="tab-pane fade" id='<%# Eval("idConteudo") %>' role="tabpanel" aria-labelledby="home-tab">
                                             <div class="container">
-                                                <div class="row mb-3">
+                                                <div class="row mb-3 mt-2">
                                                     <div class="col">
 
 
-                                                        <asp:CheckBox runat="server" ID="cb_presenhaAberta" Text="Aberta" CssClass="cb_isChamadaAberto" />
+                                                        <asp:HiddenField runat="server" ID="hf_idMateriaTurma" />
+                                                        <asp:CheckBox runat="server" ID="cb_presenhaAberta" AutoPostBack="true" Text="Chamada Aberta" CssClass="cb_isChamadaAberto" OnCheckedChanged="cb_presenhaAberta_CheckedChanged" />
                                                     </div>
                                                     <div class="col">
                                                         <div class="copia-cola-btn mt-2 float-right">
@@ -80,7 +81,9 @@
                                                                     <th scope="col">Matricula</th>
                                                                     <th scope="col">Nome</th>
                                                                     <th scope="col">IP</th>
+                                                                    <th scope="col">MAC</th>
                                                                     <th scope="col">Data Hora</th>
+                                                                    <th scope="col">Status</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -89,9 +92,16 @@
                                                                         <tr>
                                                                             <th scope="row">
                                                                                 <asp:Literal runat="server" ID="lit_numeroMatricula"></asp:Literal></th>
-                                                                            <td>teste</td>
-                                                                            <td>teste</td>
-                                                                            <td>teste</td>
+                                                                            <td>
+                                                                                <asp:Literal runat="server" ID="lit_nomeAluno"></asp:Literal></td>
+                                                                            <td>
+                                                                                <asp:Literal runat="server" ID="lit_ipAlubo"></asp:Literal></td>
+                                                                            <td>
+                                                                                <asp:Literal runat="server" ID="lit_MACAluno"></asp:Literal></td>
+                                                                            <td>
+                                                                                <asp:Literal runat="server" ID="lit_dataHora"></asp:Literal></td>
+                                                                            
+                                                                            <td> <asp:Image runat="server" ID="img_statusPresenca" CssClass="img-fluid" Width="40px" /></td>
                                                                         </tr>
                                                                     </ItemTemplate>
                                                                 </asp:Repeater>
@@ -100,9 +110,9 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                                <div class="row justify-content-center">
+                                                <div class="row justify-content-center mt-5">
                                                     <div class="col-4">
-                                                        <asp:LinkButton runat="server" ID="linkBtn_processar" Text="Processar Dia" CssClass="btn btn-success d-block"></asp:LinkButton>
+                                                        <asp:LinkButton runat="server" ID="linkBtn_processar" CssClass="btn btn-success d-block"><i class="far fa-calendar-check"></i>&nbsp; Realizar Chamada</asp:LinkButton>
                                                     </div>
                                                 </div>
 
@@ -111,6 +121,7 @@
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
+
 
                             </div>
                         </div>

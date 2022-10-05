@@ -81,6 +81,9 @@
     <Content Include="favicon.png" />
     <Content Include="img\iesp-logo.png" />
     <Content Include="img\mini-logo-iesp.png" />
+    <Content Include="img\status-confirm.png" />
+    <Content Include="img\status-not-found.png" />
+    <Content Include="img\status-waiting.gif" />
     <Content Include="img\user-logo.png" />
     <Content Include="js\Main.js" />
     <Content Include="PagesProfessor\Turmas.aspx" />
@@ -140,6 +143,7 @@
     <Compile Include="Repository\BaseRepository.cs" />
     <Compile Include="Repository\PresencaRepository.cs" />
     <Compile Include="Repository\ProfessorRepository.cs" />
+    <Compile Include="Utils\Enums.cs" />
     <Compile Include="Utils\Sessao.cs" />
     <Compile Include="Utils\Utilitario.cs" />
   </ItemGroup>
