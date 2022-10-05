@@ -12,7 +12,8 @@ namespace PRESENCA_FACIL.Pages
 {
     public partial class Aluno : System.Web.UI.Page
     {
-        public PresencaRepository Repo { get; set; } = new PresencaRepository();
+        public PresencaRepository _presencaRepo { get; set; } = new PresencaRepository();
+        public ProfessorRepository _professorRepo { get; set; } = new ProfessorRepository();
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,14 +26,20 @@ namespace PRESENCA_FACIL.Pages
 
                 if (idMateria != 0)
                 {
-                    var materia = Repo.GetMateria(idMateria);
+                    var materia = _presencaRepo.GetMateria(idMateria);
 
                     if (materia == null)
                         throw new Exception("Parametros incorretos.");
                     else
                     {
 
-                        if (MacJaRespondeu(materia.IdMateria))
+                        var professor = _professorRepo.Get(materia.IdProfessor);
+
+                        txt_dataAtual.Text = DateTime.Now.ToLongDateString();
+                        lit_materiaTurma.Text = materia.NomeMateria + " - " + professor.NomeProfessor;
+
+
+                        if (IPJaRespondeu(materia.IdMateria))
                         {
                             LimparCampos();
                             SetarStatusPrensenca(materia.IdMateria);
@@ -48,8 +55,6 @@ namespace PRESENCA_FACIL.Pages
                             else
                             {
                                 hf_idMateria.Value = materia.IdMateria.ToString();
-                                txt_dataAtual.Text = DateTime.Now.ToLongDateString();
-
                             }
 
                         }
@@ -67,7 +72,7 @@ namespace PRESENCA_FACIL.Pages
         private void SetarStatusPrensenca(int idMateria)
         {
             pnl_statusPresenca.Visible = true;
-            var chamada = Repo.GetRespostaChamadaDiaMAC(idMateria, Utilitario.ObterEnderecoMAC(), DateTime.Now);
+            var chamada = _presencaRepo.GetRespostaChamadaDiaIP(idMateria, Request.UserHostAddress, DateTime.Now);
 
             switch (chamada.StatusPresenca)
             {
@@ -86,9 +91,9 @@ namespace PRESENCA_FACIL.Pages
             }
         }
 
-        private bool MacJaRespondeu(int idMateria)
+        private bool IPJaRespondeu(int idMateria)
         {
-            var chamada = Repo.GetRespostaChamadaDiaMAC(idMateria, Utilitario.ObterEnderecoMAC(), DateTime.Now);
+            var chamada = _presencaRepo.GetRespostaChamadaDiaIP(idMateria, Request.UserHostAddress, DateTime.Now);
 
 
             return chamada != null;
@@ -102,7 +107,6 @@ namespace PRESENCA_FACIL.Pages
 
                 if (hf_idMateria.Value != "")
                 {
-                    string firstMacAddress = Utilitario.ObterEnderecoMAC();
 
                     var chamada = new PresencaAluno
                     {
@@ -111,8 +115,7 @@ namespace PRESENCA_FACIL.Pages
                         NomeAluno = txt_nome.Text,
                         NumeroMatricula = txt_matricula.Text,
                         IpAluno = Request.UserHostAddress,
-                        IdMateria = Convert.ToInt32(hf_idMateria.Value),
-                        EnderecoMACAluno = firstMacAddress
+                        IdMateria = Convert.ToInt32(hf_idMateria.Value)
                     };
 
                     var validacao = ValidarResposta(chamada);
@@ -168,27 +171,19 @@ namespace PRESENCA_FACIL.Pages
             }
 
 
-            var chamada = Repo.GetRespostaChamada(chamadaAluno.IdMateria, chamadaAluno.NumeroMatricula, DateTime.Now);
+            var chamada = _presencaRepo.GetRespostaChamada(chamadaAluno.IdMateria, chamadaAluno.NumeroMatricula, DateTime.Now);
             if (chamada != null)
             {
                 retorno = "Chamada já respondida para este número de matrícula.";
             }
             else
             {
-                chamada = Repo.GetRespostaChamadaDiaIP(chamadaAluno.IdMateria, chamadaAluno.IpAluno, DateTime.Now);
+                chamada = _presencaRepo.GetRespostaChamadaDiaIP(chamadaAluno.IdMateria, chamadaAluno.IpAluno, DateTime.Now);
                 if (chamada != null)
                 {
                     retorno = "Este Computador já foi usado para responder a chamada hoje !";
                 }
-                else
-                {
-
-                    chamada = Repo.GetRespostaChamadaDiaMAC(chamadaAluno.IdMateria, chamadaAluno.EnderecoMACAluno, DateTime.Now);
-
-                    if (chamada != null)
-                        retorno = "Este Computador já foi usado para responder a chamada hoje !";
-                }
-
+              
             }
 
 

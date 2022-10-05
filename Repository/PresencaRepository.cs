@@ -166,21 +166,7 @@ namespace PRESENCA_FACIL.Repository
             }
         }
         
-        public PresencaAluno GetRespostaChamadaDiaMAC(int idMateria, string EnderecoMAC, DateTime now)
-        {
-            try
-            {
-                using (var cnx = new SqlConnection(Connection))
-                {
-                    return cnx.QueryFirstOrDefault<PresencaAluno>("usp_chamada_aluno_select_MAC_JaRespondeu",
-                        new { idMateria = idMateria, EnderecoMACAluno = EnderecoMAC, data = now }, commandType: CommandType.StoredProcedure);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+      
     }
 
 }

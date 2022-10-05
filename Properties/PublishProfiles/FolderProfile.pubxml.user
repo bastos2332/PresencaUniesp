@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\IIS</_PublishTargetUrl>
-    <History>True|2022-08-25T22:48:24.2899406Z;</History>
+    <History>True|2022-10-05T05:07:55.3100557Z;True|2022-10-05T02:07:33.7859892-03:00;True|2022-10-05T02:06:43.9799821-03:00;True|2022-10-05T02:03:52.7140512-03:00;True|2022-10-05T02:00:00.0388151-03:00;True|2022-10-05T01:49:21.7478991-03:00;True|2022-08-25T19:48:24.2899406-03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/CHAMADA.dll">
@@ -14,161 +14,284 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/CHAMADA.pdb">
       <publishTime>08/25/2022 19:48:22</publishTime>
     </File>
+    <File Include="bin/Dapper.Contrib.dll">
+      <publishTime>10/04/2022 01:53:37</publishTime>
+    </File>
+    <File Include="bin/Dapper.dll">
+      <publishTime>10/04/2022 01:53:37</publishTime>
+    </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
-      <publishTime>09/05/2018 16:10:50</publishTime>
+      <publishTime>10/04/2022 01:53:37</publishTime>
+    </File>
+    <File Include="bin/PRESENCA_FACIL.dll">
+      <publishTime>10/05/2022 02:03:52</publishTime>
+    </File>
+    <File Include="bin/PRESENCA_FACIL.pdb">
+      <publishTime>10/05/2022 02:03:52</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
-      <publishTime>08/08/2018 05:38:48</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe.config">
-      <publishTime>08/08/2018 12:18:12</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/csc.rsp">
-      <publishTime>08/08/2018 12:09:42</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/csi.exe">
-      <publishTime>08/08/2018 05:38:48</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/csi.exe.config">
-      <publishTime>08/08/2018 12:18:34</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/csi.rsp">
-      <publishTime>08/08/2018 12:09:56</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
-      <publishTime>08/08/2018 05:38:48</publishTime>
+      <publishTime>10/04/2022 01:53:37</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
-      <publishTime>08/08/2018 05:38:48</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
-      <publishTime>08/08/2018 05:38:48</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
-      <publishTime>08/08/2018 05:38:48</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
-      <publishTime>08/08/2018 05:38:48</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
-      <publishTime>08/08/2018 05:38:48</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
-      <publishTime>08/08/2018 12:09:42</publishTime>
+      <publishTime>10/04/2022 01:53:37</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
-      <publishTime>12/05/2017 10:36:44</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
-      <publishTime>12/05/2017 10:36:44</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
-      <publishTime>08/08/2018 12:09:42</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
-      <publishTime>08/08/2018 12:09:42</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.Win32.Primitives.dll">
-      <publishTime>11/05/2016 19:55:32</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.AppContext.dll">
-      <publishTime>11/05/2016 19:55:34</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Collections.Immutable.dll">
-      <publishTime>05/16/2018 03:29:34</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Console.dll">
-      <publishTime>11/05/2016 19:55:48</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Diagnostics.DiagnosticSource.dll">
-      <publishTime>11/05/2016 19:55:52</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
-      <publishTime>11/05/2016 19:55:56</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
-      <publishTime>11/05/2016 19:55:52</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Globalization.Calendars.dll">
-      <publishTime>11/05/2016 19:56:02</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.IO.Compression.dll">
-      <publishTime>11/05/2016 19:56:08</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.IO.Compression.ZipFile.dll">
-      <publishTime>11/05/2016 19:56:04</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.IO.FileSystem.dll">
-      <publishTime>11/05/2016 19:56:08</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
-      <publishTime>11/05/2016 19:56:08</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Net.Http.dll">
-      <publishTime>11/05/2016 19:56:30</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Net.Sockets.dll">
-      <publishTime>11/05/2016 19:56:34</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Reflection.Metadata.dll">
-      <publishTime>05/16/2018 03:29:44</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Runtime.InteropServices.RuntimeInformation.dll">
-      <publishTime>11/05/2016 19:57:00</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
-      <publishTime>11/05/2016 19:57:14</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
-      <publishTime>11/05/2016 19:57:08</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
-      <publishTime>11/05/2016 19:57:18</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
-      <publishTime>11/05/2016 19:57:18</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
-      <publishTime>11/05/2016 19:57:20</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Threading.Tasks.Extensions.dll">
-      <publishTime>11/05/2016 19:57:24</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.ValueTuple.dll">
-      <publishTime>11/05/2016 19:57:30</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
-      <publishTime>11/05/2016 19:57:36</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
-      <publishTime>11/05/2016 19:57:34</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Xml.XPath.dll">
-      <publishTime>11/05/2016 19:57:40</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
-      <publishTime>11/05/2016 19:57:34</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe">
-      <publishTime>08/08/2018 05:38:48</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe.config">
-      <publishTime>08/08/2018 12:18:18</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.rsp">
-      <publishTime>08/08/2018 12:09:46</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe">
-      <publishTime>08/08/2018 05:38:48</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
-      <publishTime>08/08/2018 12:18:16</publishTime>
+      <publishTime>10/04/2022 01:53:38</publishTime>
+    </File>
+    <File Include="bin/WebDriver.dll">
+      <publishTime>09/28/2022 21:23:36</publishTime>
+    </File>
+    <File Include="bin/WebDriver.Support.dll">
+      <publishTime>09/28/2022 21:27:56</publishTime>
+    </File>
+    <File Include="css/adminlte.min.css">
+      <publishTime>10/04/2022 02:01:05</publishTime>
+    </File>
+    <File Include="css/all.min.css">
+      <publishTime>10/04/2022 02:00:24</publishTime>
+    </File>
+    <File Include="css/Main.css">
+      <publishTime>10/04/2022 06:12:49</publishTime>
+    </File>
+    <File Include="driver/chromedriver.exe">
+      <publishTime>10/05/2022 01:18:40</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>10/04/2022 05:26:23</publishTime>
+    </File>
+    <File Include="favicon.png">
+      <publishTime>10/04/2022 05:29:18</publishTime>
+    </File>
+    <File Include="img/iesp-logo.png">
+      <publishTime>10/04/2022 02:17:05</publishTime>
+    </File>
+    <File Include="img/mini-logo-iesp.png">
+      <publishTime>10/04/2022 05:18:23</publishTime>
+    </File>
+    <File Include="img/status-confirm.png">
+      <publishTime>10/04/2022 23:23:29</publishTime>
+    </File>
+    <File Include="img/status-not-found.png">
+      <publishTime>10/04/2022 23:23:29</publishTime>
+    </File>
+    <File Include="img/status-waiting.gif">
+      <publishTime>10/05/2022 00:23:43</publishTime>
+    </File>
+    <File Include="img/user-logo.png">
+      <publishTime>10/04/2022 05:10:01</publishTime>
+    </File>
+    <File Include="js/adminlte.min.js">
+      <publishTime>10/04/2022 02:05:15</publishTime>
+    </File>
+    <File Include="js/bootstrap.bundle.min.js">
+      <publishTime>10/04/2022 02:05:06</publishTime>
+    </File>
+    <File Include="js/jquery.min.js">
+      <publishTime>10/04/2022 02:04:54</publishTime>
+    </File>
+    <File Include="js/Main.js">
+      <publishTime>10/04/2022 17:30:01</publishTime>
     </File>
     <File Include="Pages/Aluno.aspx">
-      <publishTime>08/25/2022 19:47:46</publishTime>
+      <publishTime>10/05/2022 02:07:50</publishTime>
+    </File>
+    <File Include="Pages/Error.aspx">
+      <publishTime>10/04/2022 06:01:44</publishTime>
+    </File>
+    <File Include="Pages/Login.aspx">
+      <publishTime>10/04/2022 05:29:59</publishTime>
+    </File>
+    <File Include="PagesProfessor/Default.Master">
+      <publishTime>10/04/2022 17:09:23</publishTime>
+    </File>
+    <File Include="PagesProfessor/Turmas.aspx">
+      <publishTime>10/05/2022 02:01:48</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/25/2022 19:48:23</publishTime>
+      <publishTime>10/05/2022 01:49:19</publishTime>
+    </File>
+    <File Include="webfonts/fa-brands-400.eot">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-brands-400.svg">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-brands-400.ttf">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-brands-400.woff">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-brands-400.woff2">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-regular-400.eot">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-regular-400.svg">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-regular-400.ttf">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-regular-400.woff">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-regular-400.woff2">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-solid-900.eot">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-solid-900.svg">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-solid-900.ttf">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-solid-900.woff">
+      <publishTime>10/04/2022 02:15:12</publishTime>
+    </File>
+    <File Include="webfonts/fa-solid-900.woff2">
+      <publishTime>10/04/2022 02:15:12</publishTime>
     </File>
   </ItemGroup>
 </Project>

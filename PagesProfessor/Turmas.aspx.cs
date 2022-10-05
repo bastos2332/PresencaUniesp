@@ -111,11 +111,8 @@ namespace PRESENCA_FACIL.PagesProfessor
                 Literal lit_nomeAluno = (Literal)e.Item.FindControl("lit_nomeAluno");
                 lit_nomeAluno.Text = DataBinder.Eval(e.Item.DataItem, "nomeAluno").ToString();
 
-                Literal lit_ipAlubo = (Literal)e.Item.FindControl("lit_ipAlubo");
-                lit_ipAlubo.Text = DataBinder.Eval(e.Item.DataItem, "ipAluno").ToString();
-
-                Literal lit_MACAluno = (Literal)e.Item.FindControl("lit_MACAluno");
-                lit_MACAluno.Text = DataBinder.Eval(e.Item.DataItem, "EnderecoMACAluno").ToString();
+                Literal lit_ipAluno = (Literal)e.Item.FindControl("lit_ipAlubo");
+                lit_ipAluno.Text = DataBinder.Eval(e.Item.DataItem, "ipAluno").ToString();
 
                 Literal lit_dataHora = (Literal)e.Item.FindControl("lit_dataHora");
                 lit_dataHora.Text = DataBinder.Eval(e.Item.DataItem, "dataChamada").ToString();
@@ -123,7 +120,7 @@ namespace PRESENCA_FACIL.PagesProfessor
                 int idMateria = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "idMateria"));
 
                 Image img_statusPresenca = (Image)e.Item.FindControl("img_statusPresenca");
-                SetarStatusPrensenca(idMateria, img_statusPresenca);
+                SetarStatusPrensenca(idMateria, img_statusPresenca, lit_ipAluno.Text);
 
             }
         }
@@ -199,9 +196,9 @@ namespace PRESENCA_FACIL.PagesProfessor
 
         #region METODOS
 
-        private void SetarStatusPrensenca(int idMateria, Image img)
+        private void SetarStatusPrensenca(int idMateria, Image img, string ipAluno)
         {
-            var chamada = presencaRepo.GetRespostaChamadaDiaMAC(idMateria, Utilitario.ObterEnderecoMAC(), DateTime.Now);
+            var chamada = presencaRepo.GetRespostaChamadaDiaIP(idMateria, ipAluno, DateTime.Now);
 
             switch (chamada.StatusPresenca)
             {

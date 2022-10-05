@@ -48,13 +48,14 @@ namespace PRESENCA_FACIL.Repository
 
         }
 
-        public Professor Get(int idProfessor)
+        public ProfessorDTO Get(int idProfessor)
         {
             try
             {
                 using (var cnx = new SqlConnection(Connection))
                 {
-                    return cnx.Get<Professor>(idProfessor);
+                    return cnx.QueryFirstOrDefault<ProfessorDTO>("usp_professor_select",
+                        new { idProfessor = idProfessor}, commandType: CommandType.StoredProcedure);
                 }
             }
             catch (Exception ex)

@@ -81,7 +81,6 @@
                                                                     <th scope="col">Matricula</th>
                                                                     <th scope="col">Nome</th>
                                                                     <th scope="col">IP</th>
-                                                                    <th scope="col">MAC</th>
                                                                     <th scope="col">Data Hora</th>
                                                                     <th scope="col">Status</th>
                                                                 </tr>
@@ -96,12 +95,12 @@
                                                                                 <asp:Literal runat="server" ID="lit_nomeAluno"></asp:Literal></td>
                                                                             <td>
                                                                                 <asp:Literal runat="server" ID="lit_ipAlubo"></asp:Literal></td>
-                                                                            <td>
-                                                                                <asp:Literal runat="server" ID="lit_MACAluno"></asp:Literal></td>
+
                                                                             <td>
                                                                                 <asp:Literal runat="server" ID="lit_dataHora"></asp:Literal></td>
-                                                                            
-                                                                            <td> <asp:Image runat="server" ID="img_statusPresenca" CssClass="img-fluid" Width="40px" /></td>
+
+                                                                            <td>
+                                                                                <asp:Image runat="server" ID="img_statusPresenca" CssClass="img-fluid" Width="40px" /></td>
                                                                         </tr>
                                                                     </ItemTemplate>
                                                                 </asp:Repeater>

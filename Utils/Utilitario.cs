@@ -20,13 +20,6 @@ namespace PRESENCA_FACIL.Utils
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
-        public static string ObterEnderecoMAC()
-        {
-            return NetworkInterface
-                .GetAllNetworkInterfaces()
-                .Where(nic => nic.OperationalStatus == OperationalStatus.Up && nic.NetworkInterfaceType != NetworkInterfaceType.Loopback)
-                .Select(nic => nic.GetPhysicalAddress().ToString())
-                .FirstOrDefault();
-        }
+       
     }
 }

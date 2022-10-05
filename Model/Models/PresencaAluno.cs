@@ -10,7 +10,6 @@ public class PresencaAluno
     public string NumeroMatricula { get; set; }
     public DateTime DataChamada { get; set; }
     public string IpAluno { get; set; }
-    public string EnderecoMACAluno { get; set; }
     public string NomeAluno { get; set; }
     public string StatusPresenca { get; set; }
     public int IdMateria { get; set; }
