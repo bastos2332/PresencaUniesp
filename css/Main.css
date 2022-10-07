@@ -1,3 +1,8 @@
 ﻿span.cb_isChamadaAberto input {
     margin-right:10px!important;
 }
+
+ul.lista-redes li{
+    display:inline;
+    margin-right:15px;
+}

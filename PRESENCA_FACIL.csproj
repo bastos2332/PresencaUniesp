@@ -86,13 +86,20 @@
     <Content Include="driver\chromedriver.exe" />
     <Content Include="favicon.ico" />
     <Content Include="favicon.png" />
+    <Content Include="img\bastos.png" />
+    <Content Include="img\facebook.png" />
+    <Content Include="img\github.png" />
+    <Content Include="img\gitlab.png" />
     <Content Include="img\iesp-logo.png" />
+    <Content Include="img\instagram.png" />
+    <Content Include="img\linkedin.png" />
     <Content Include="img\mini-logo-iesp.png" />
     <Content Include="img\status-confirm.png" />
     <Content Include="img\status-not-found.png" />
     <Content Include="img\status-waiting.gif" />
     <Content Include="img\user-logo.png" />
     <Content Include="js\Main.js" />
+    <Content Include="PagesProfessor\Sobre.aspx" />
     <Content Include="PagesProfessor\Turmas.aspx" />
     <Content Include="Pages\Error.aspx" />
     <Content Include="webfonts\fa-brands-400.svg" />
@@ -104,6 +111,7 @@
     <Content Include="Pages\Aluno.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Web.config" />
+    <Content Include="Wuc\wuc_sobre.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Dtos\MateriaDto.cs" />
@@ -117,6 +125,13 @@
     </Compile>
     <Compile Include="PagesProfessor\Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PagesProfessor\Sobre.aspx.cs">
+      <DependentUpon>Sobre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagesProfessor\Sobre.aspx.designer.cs">
+      <DependentUpon>Sobre.aspx</DependentUpon>
     </Compile>
     <Compile Include="PagesProfessor\Turmas.aspx.cs">
       <DependentUpon>Turmas.aspx</DependentUpon>
@@ -154,6 +169,13 @@
     <Compile Include="Utils\Selenium.cs" />
     <Compile Include="Utils\Sessao.cs" />
     <Compile Include="Utils\Utilitario.cs" />
+    <Compile Include="Wuc\wuc_sobre.ascx.cs">
+      <DependentUpon>wuc_sobre.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wuc\wuc_sobre.ascx.designer.cs">
+      <DependentUpon>wuc_sobre.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="webfonts\fa-brands-400.eot" />

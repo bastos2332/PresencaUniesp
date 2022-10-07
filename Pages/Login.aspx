@@ -19,7 +19,7 @@
         <div class="login-box">
             <div class="login-logo">
                 <img src="../img/iesp-logo.png" class="img-fluid" />
-                <a href="#" class="text-white" ><b>Presença</b>Facil</a>
+                <a href="#" class="text-white" ><b>Presença</b>Fácil</a>
             </div>
 
             <div class="card">

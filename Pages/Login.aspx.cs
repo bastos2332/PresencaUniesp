@@ -19,7 +19,7 @@ namespace PRESENCA_FACIL.Pages
         {
             try
             {
-
+                Session.Clear();
             }
             catch (Exception ex)
             {

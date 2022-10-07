@@ -7,7 +7,7 @@
     <title>Presença Fácil</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <link rel="icon" type="image/x-icon" href="/favicon.png"/>
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <link href="/css/adminlte.min.css" rel="stylesheet" />
@@ -73,6 +73,22 @@
                                     </p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="Sobre.aspx" class="nav-link">
+                                    <i class="fas fa-info"></i>
+                                    <p>
+                                        Saiba Mais
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Pages/Login.aspx" class="nav-link">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <p>
+                                        Sair
+                                    </p>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -103,11 +119,48 @@
             </aside>
 
             <footer class="main-footer">
-                <div class="float-right d-none d-sm-inline">
-                    Anything you want
-   
-                </div>
+
                 <strong>Copyright &copy; 2022 - By <a href="https://www.instagram.com/o_bastos98/?hl=pt-br]" target="_blank">Gabriel Bastos</a>.</strong>
+
+                <div class="row">
+                    <div class="col col-lg-4">
+                        <ul class="lista-redes pl-0 mt-2">
+                            <li>
+                                <a href="https://www.facebook.com/profile.php?id=100035270381314" target="_blank">
+                                    <img src="/img/facebook.png" />
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.instagram.com/o_bastos98/?hl=pt-br]" target="_blank">
+                                    <img src="/img/instagram.png" />
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.linkedin.com/in/gabriel-bastos-26b53314a/" target="_blank">
+                                    <img src="/img/linkedin.png" />
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://github.com/bastos2332" target="_blank">
+
+                                    <img src="/img/github.png" />
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://gitlab.com/users/bastos2332/activity" target="_blank">
+
+                                    <img src="/img/gitlab.png" />
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
 
             </footer>
         </div>
